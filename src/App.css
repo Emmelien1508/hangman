@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --accent1: #F299BE;
+  --accent1-darker: #E081B0;
+  --accent2: #EDFCFF;
+  --accent2-darker: #C9EBF2;
+  --shade: rgba(0, 0, 0, 0.3);
+  --game-width: 50vw;
+  --padding-sm: 20px;
+  --border-radius: 5px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--accent2);
+  color: var(--black);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+h1, h3 {
+  text-align: center;
+  font-weight: 700;
+}
+
+nav {
+  min-height: 50px;
+  width: 100vw;
+  background-color: var(--accent1);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+nav > * {
+  margin: 0 50px;
+  color: var(--black);
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+nav > *:hover {
+  color: var(--accent2-darker);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+ border: 1px solid var(--accent2-darker);
+ background-color: var(--white);
+ font-family: 'Poppins', sans-serif;
+ font-size: 16px;
+ padding: 10px 0 10px 5px;
+ border-radius: var(--border-radius); 
+ outline: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
+  font-weight: 700;
+  font-size: 16px;
+  border: 0;
+  padding: calc(var(--padding-sm) / 2) var(--padding-sm);
+  margin-top: var(--padding-sm);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease-in-out; 
+}
+
+form button, .pink-btn {
+  background-color: var(--accent1);
+}
+
+form button:hover, .pink-btn:hover {
+  background-color: var(--accent1-darker);
+}
+
+.centered {
+  text-align: center;
+}
+
+.flex-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin-top: var(--padding-sm);
+}
+
+.instructions,
+.show-word {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container {
+  position: relative;
+  height: 80vh;
+  width: var(--game-width);
+}
+
+.wrong-letters-container {
+  background-color: var(--accent1);
+  padding: calc(var(--padding-sm) / 3) calc(var(--padding-sm) / 1.5);
+  border-radius: var(--border-radius);
+  height: 75px;
+  position: absolute;
+  top: var(--padding-sm);
+  right: var(--padding-sm);
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.wrong-letters-container span {
+  font-size: 24px;
+}
+
+.word {
+  display: flex;
+  position: absolute;
+  bottom: calc(var(--padding-sm) / 2);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.letter {
+  border-bottom: 4px solid var(--accent1);
+  display: inline-flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 calc(var(--padding-sm) / 4);
+  height: calc(var(--padding-sm) * 2.5);
+  width: calc(var(--padding-sm) * 1.5);
+}
+
+.popup-container {
+  background-color: var(--shade);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background: var(--accent1);
+  border-radius: 5px;
+  box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.popup button {
+  background-color: var(--accent2);
+}
+
+.popup button:hover {
+  background-color: var(--accent2-darker);
+}
+
+.popup > p {
+  font-size: 20px;
+}
+
+.notification-container {
+  background-color: var(--shade);
+  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  position: absolute;
+  bottom: -60px;
+  transition: transform 0.3s ease-in-out;
+  width: var(--game-width);
+}
+
+.notification-container p {
+  margin: 0;
+}
+
+.notification-container.show {
+  transform: translateY(-60px);
+}
+
+.hangman-figure,
+.empty-figure {
+  width: 550px;
+  height: 550px;
+  object-fit: cover;
+}
+
+.small-figure {
+  width: 250px;
+}
+
+.small-figure-empty-state {
+  width: 250px;
+  margin-left: 200px;
+}
